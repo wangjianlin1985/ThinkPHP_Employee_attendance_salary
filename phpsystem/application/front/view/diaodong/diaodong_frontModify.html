@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+  <TITLE>修改员工调动信息</TITLE>
+  <link href="__PUBLIC__/plugins/bootstrap.css" rel="stylesheet">
+  <link href="__PUBLIC__/plugins/bootstrap-dashen.css" rel="stylesheet">
+  <link href="__PUBLIC__/plugins/font-awesome.css" rel="stylesheet">
+  <link href="__PUBLIC__/plugins/animate.css" rel="stylesheet"> 
+</head>
+<body style="margin-top:70px;"> 
+<div class="container">
+{include file="common/header" /}
+	<div class="col-md-9 wow fadeInLeft">
+	<ul class="breadcrumb">
+  		<li><a href="__PUBLIC__/index.php">首页</a></li>
+  		<li class="active">员工调动信息修改</li>
+	</ul>
+		<div class="row"> 
+      	<form class="form-horizontal" name="diaodongEditForm" id="diaodongEditForm" enctype="multipart/form-data" method="post"  class="mar_t15">
+		  <div class="form-group">
+			 <label for="diaodong_id_edit" class="col-md-3 text-right">调动id:</label>
+			 <div class="col-md-9"> 
+			 	<input type="text" id="diaodong_id_edit" name="diaodong_id" class="form-control" placeholder="请输入调动id" readOnly>
+			 </div>
+		  </div> 
+		  <div class="form-group">
+		  	 <label for="diaodong_xingming_bianhao_edit" class="col-md-3 text-right">姓名:</label>
+		  	 <div class="col-md-9">
+			    <select id="diaodong_xingming_bianhao_edit" name="diaodong_xingming_bianhao" class="form-control">
+			    </select>
+		  	 </div>
+		  </div>
+		  <div class="form-group">
+		  	 <label for="diaodong_bumenmingcheng_bumenbianhao_edit" class="col-md-3 text-right">部门名称:</label>
+		  	 <div class="col-md-9">
+			    <select id="diaodong_bumenmingcheng_bumenbianhao_edit" name="diaodong_bumenmingcheng_bumenbianhao" class="form-control">
+			    </select>
+		  	 </div>
+		  </div>
+		  <div class="form-group">
+		  	 <label for="diaodong_danrenzhiwu_edit" class="col-md-3 text-right">担任职务:</label>
+		  	 <div class="col-md-9">
+			    <input type="text" id="diaodong_danrenzhiwu_edit" name="diaodong_danrenzhiwu" class="form-control" placeholder="请输入担任职务">
+			 </div>
+		  </div>
+		  <div class="form-group">
+		  	 <label for="diaodong_yuanjibengongzi_edit" class="col-md-3 text-right">原基本工资:</label>
+		  	 <div class="col-md-9">
+			    <input type="text" id="diaodong_yuanjibengongzi_edit" name="diaodong_yuanjibengongzi" class="form-control" placeholder="请输入原基本工资">
+			 </div>
+		  </div>
+		  <div class="form-group">
+		  	 <label for="diaodong_diaodongzhiwei_edit" class="col-md-3 text-right">调动职位:</label>
+		  	 <div class="col-md-9">
+			    <input type="text" id="diaodong_diaodongzhiwei_edit" name="diaodong_diaodongzhiwei" class="form-control" placeholder="请输入调动职位">
+			 </div>
+		  </div>
+		  <div class="form-group">
+		  	 <label for="diaodong_diaodongbumen_bumenbianhao_edit" class="col-md-3 text-right">调动部门:</label>
+		  	 <div class="col-md-9">
+			    <select id="diaodong_diaodongbumen_bumenbianhao_edit" name="diaodong_diaodongbumen_bumenbianhao" class="form-control">
+			    </select>
+		  	 </div>
+		  </div>
+		  <div class="form-group">
+		  	 <label for="diaodong_diaodongriqi_edit" class="col-md-3 text-right">调动日期:</label>
+		  	 <div class="col-md-9">
+                <div class="input-group date diaodong_diaodongriqi_edit col-md-12" data-link-field="diaodong_diaodongriqi_edit" data-link-format="yyyy-mm-dd">
+                    <input class="form-control" id="diaodong_diaodongriqi_edit" name="diaodong_diaodongriqi" size="16" type="text" value="" placeholder="请选择调动日期" readonly>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+		  	 </div>
+		  </div>
+		  <div class="form-group">
+		  	 <label for="diaodong_xianjibengongzi_edit" class="col-md-3 text-right">现基本工资:</label>
+		  	 <div class="col-md-9">
+			    <input type="text" id="diaodong_xianjibengongzi_edit" name="diaodong_xianjibengongzi" class="form-control" placeholder="请输入现基本工资">
+			 </div>
+		  </div>
+		  <div class="form-group">
+		  	 <label for="diaodong_diaodongyuanyin_edit" class="col-md-3 text-right">调动原因:</label>
+		  	 <div class="col-md-9">
+			    <input type="text" id="diaodong_diaodongyuanyin_edit" name="diaodong_diaodongyuanyin" class="form-control" placeholder="请输入调动原因">
+			 </div>
+		  </div>
+		  <div class="form-group">
+		  	 <label for="diaodong_addtime_edit" class="col-md-3 text-right">添加时间:</label>
+		  	 <div class="col-md-9">
+                <div class="input-group date diaodong_addtime_edit col-md-12" data-link-field="diaodong_addtime_edit">
+                    <input class="form-control" id="diaodong_addtime_edit" name="diaodong_addtime" size="16" type="text" value="" placeholder="请选择添加时间" readonly>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+		  	 </div>
+		  </div>
+			  <div class="form-group">
+			  	<span class="col-md-3"></span>
+			  	<span onclick="ajaxDiaodongModify();" class="btn btn-primary bottom5 top5">修改</span>
+			  </div>
+		</form> 
+	    <style>#diaodongEditForm .form-group {margin-bottom:5px;}  </style>
+      </div>
+   </div>
+</div>
+
+
+{include file="common/footer" /}
+<script src="__PUBLIC__/plugins/jquery.min.js"></script>
+<script src="__PUBLIC__/plugins/bootstrap.js"></script>
+<script src="__PUBLIC__/plugins/wow.min.js"></script>
+<script src="__PUBLIC__/plugins/bootstrap-datetimepicker.min.js"></script>
+<script src="__PUBLIC__/plugins/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jsdate.js"></script>
+<script>
+/*弹出修改员工调动界面并初始化数据*/
+function diaodongEdit(id) {
+	$.ajax({
+		url :  "{:url('Diaodong/update')}?id=" + id,
+		type : "get",
+		dataType: "json",
+		success : function (diaodong, response, status) {
+			if (diaodong) {
+				$("#diaodong_id_edit").val(diaodong.id);
+				$.ajax({
+					url: "{:url('Employee/listAll')}",
+					type: "get",
+					dataType: "json",
+					success: function(employees,response,status) { 
+						$("#diaodong_xingming_bianhao_edit").empty();
+						var html="";
+		        		$(employees).each(function(i,employee){
+		        			html += "<option value='" + employee.bianhao + "'>" + employee.xingming + "</option>";
+		        		});
+		        		$("#diaodong_xingming_bianhao_edit").html(html);
+		        		$("#diaodong_xingming_bianhao_edit").val(diaodong.xingming);
+					}
+				});
+				$.ajax({
+					url: "{:url('Bumen/listAll')}",
+					type: "get",
+					dataType: "json",
+					success: function(bumens,response,status) { 
+						$("#diaodong_bumenmingcheng_bumenbianhao_edit").empty();
+						var html="";
+		        		$(bumens).each(function(i,bumen){
+		        			html += "<option value='" + bumen.bumenbianhao + "'>" + bumen.bumenmingcheng + "</option>";
+		        		});
+		        		$("#diaodong_bumenmingcheng_bumenbianhao_edit").html(html);
+		        		$("#diaodong_bumenmingcheng_bumenbianhao_edit").val(diaodong.bumenmingcheng);
+					}
+				});
+				$("#diaodong_danrenzhiwu_edit").val(diaodong.danrenzhiwu);
+				$("#diaodong_yuanjibengongzi_edit").val(diaodong.yuanjibengongzi);
+				$("#diaodong_diaodongzhiwei_edit").val(diaodong.diaodongzhiwei);
+				$.ajax({
+					url: "{:url('Bumen/listAll')}",
+					type: "get",
+					dataType: "json",
+					success: function(bumens,response,status) { 
+						$("#diaodong_diaodongbumen_bumenbianhao_edit").empty();
+						var html="";
+		        		$(bumens).each(function(i,bumen){
+		        			html += "<option value='" + bumen.bumenbianhao + "'>" + bumen.bumenmingcheng + "</option>";
+		        		});
+		        		$("#diaodong_diaodongbumen_bumenbianhao_edit").html(html);
+		        		$("#diaodong_diaodongbumen_bumenbianhao_edit").val(diaodong.diaodongbumen);
+					}
+				});
+				$("#diaodong_diaodongriqi_edit").val(diaodong.diaodongriqi);
+				$("#diaodong_xianjibengongzi_edit").val(diaodong.xianjibengongzi);
+				$("#diaodong_diaodongyuanyin_edit").val(diaodong.diaodongyuanyin);
+				$("#diaodong_addtime_edit").val(diaodong.addtime);
+			} else {
+				alert("获取信息失败！");
+			}
+		}
+	});
+}
+
+/*ajax方式提交员工调动信息表单给服务器端修改*/
+function ajaxDiaodongModify() {
+	$.ajax({
+		url :  "{:url('Diaodong/update')}",
+		type : "post",
+		dataType: "json",
+		data: new FormData($("#diaodongEditForm")[0]),
+		success : function (obj, response, status) {
+            if(obj.success){
+                alert("信息修改成功！");
+                location.reload(true);
+                $("#diaodongQueryForm").submit();
+            }else{
+                alert(obj.message);
+            } 
+		},
+		processData: false,
+		contentType: false,
+	});
+}
+
+$(function(){
+        /*小屏幕导航点击关闭菜单*/
+        $('.navbar-collapse a').click(function(){
+            $('.navbar-collapse').collapse('hide');
+        });
+        new WOW().init();
+    /*调动日期组件*/
+    $('.diaodong_diaodongriqi_edit').datetimepicker({
+    	language:  'zh-CN',  //语言
+    	format: 'yyyy-mm-dd',
+    	minView: 2,
+    	weekStart: 1,
+    	todayBtn:  1,
+    	autoclose: 1,
+    	minuteStep: 1,
+    	todayHighlight: 1,
+    	startView: 2,
+    	forceParse: 0
+    });
+    /*添加时间组件*/
+    $('.diaodong_addtime_edit').datetimepicker({
+    	language:  'zh-CN',  //语言
+    	format: 'yyyy-mm-dd hh:ii:ss',
+    	weekStart: 1,
+    	todayBtn:  1,
+    	autoclose: 1,
+    	minuteStep: 1,
+    	todayHighlight: 1,
+    	startView: 2,
+    	forceParse: 0
+    });
+    diaodongEdit("{$id}");
+ })
+ </script> 
+</body>
+</html>
+

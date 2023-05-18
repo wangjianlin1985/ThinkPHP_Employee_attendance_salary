@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+  <TITLE>修改部门信息</TITLE>
+  <link href="__PUBLIC__/plugins/bootstrap.css" rel="stylesheet">
+  <link href="__PUBLIC__/plugins/bootstrap-dashen.css" rel="stylesheet">
+  <link href="__PUBLIC__/plugins/font-awesome.css" rel="stylesheet">
+  <link href="__PUBLIC__/plugins/animate.css" rel="stylesheet"> 
+</head>
+<body style="margin-top:70px;"> 
+<div class="container">
+{include file="common/header" /}
+	<div class="col-md-9 wow fadeInLeft">
+	<ul class="breadcrumb">
+  		<li><a href="__PUBLIC__/index.php">首页</a></li>
+  		<li class="active">部门信息修改</li>
+	</ul>
+		<div class="row"> 
+      	<form class="form-horizontal" name="bumenEditForm" id="bumenEditForm" enctype="multipart/form-data" method="post"  class="mar_t15">
+		  <div class="form-group">
+			 <label for="bumen_bumenbianhao_edit" class="col-md-3 text-right">部门编号:</label>
+			 <div class="col-md-9"> 
+			 	<input type="text" id="bumen_bumenbianhao_edit" name="bumen_bumenbianhao" class="form-control" placeholder="请输入部门编号" readOnly>
+			 </div>
+		  </div> 
+		  <div class="form-group">
+		  	 <label for="bumen_bumenmingcheng_edit" class="col-md-3 text-right">部门名称:</label>
+		  	 <div class="col-md-9">
+			    <input type="text" id="bumen_bumenmingcheng_edit" name="bumen_bumenmingcheng" class="form-control" placeholder="请输入部门名称">
+			 </div>
+		  </div>
+		  <div class="form-group">
+		  	 <label for="bumen_addtime_edit" class="col-md-3 text-right">添加时间:</label>
+		  	 <div class="col-md-9">
+                <div class="input-group date bumen_addtime_edit col-md-12" data-link-field="bumen_addtime_edit">
+                    <input class="form-control" id="bumen_addtime_edit" name="bumen_addtime" size="16" type="text" value="" placeholder="请选择添加时间" readonly>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+                </div>
+		  	 </div>
+		  </div>
+			  <div class="form-group">
+			  	<span class="col-md-3"></span>
+			  	<span onclick="ajaxBumenModify();" class="btn btn-primary bottom5 top5">修改</span>
+			  </div>
+		</form> 
+	    <style>#bumenEditForm .form-group {margin-bottom:5px;}  </style>
+      </div>
+   </div>
+</div>
+
+
+{include file="common/footer" /}
+<script src="__PUBLIC__/plugins/jquery.min.js"></script>
+<script src="__PUBLIC__/plugins/bootstrap.js"></script>
+<script src="__PUBLIC__/plugins/wow.min.js"></script>
+<script src="__PUBLIC__/plugins/bootstrap-datetimepicker.min.js"></script>
+<script src="__PUBLIC__/plugins/locales/bootstrap-datetimepicker.zh-CN.js"></script>
+<script type="text/javascript" src="__PUBLIC__/js/jsdate.js"></script>
+<script>
+/*弹出修改部门界面并初始化数据*/
+function bumenEdit(bumenbianhao) {
+	$.ajax({
+		url :  "{:url('Bumen/update')}?bumenbianhao=" + bumenbianhao,
+		type : "get",
+		dataType: "json",
+		success : function (bumen, response, status) {
+			if (bumen) {
+				$("#bumen_bumenbianhao_edit").val(bumen.bumenbianhao);
+				$("#bumen_bumenmingcheng_edit").val(bumen.bumenmingcheng);
+				$("#bumen_addtime_edit").val(bumen.addtime);
+			} else {
+				alert("获取信息失败！");
+			}
+		}
+	});
+}
+
+/*ajax方式提交部门信息表单给服务器端修改*/
+function ajaxBumenModify() {
+	$.ajax({
+		url :  "{:url('Bumen/update')}",
+		type : "post",
+		dataType: "json",
+		data: new FormData($("#bumenEditForm")[0]),
+		success : function (obj, response, status) {
+            if(obj.success){
+                alert("信息修改成功！");
+                location.reload(true);
+                $("#bumenQueryForm").submit();
+            }else{
+                alert(obj.message);
+            } 
+		},
+		processData: false,
+		contentType: false,
+	});
+}
+
+$(function(){
+        /*小屏幕导航点击关闭菜单*/
+        $('.navbar-collapse a').click(function(){
+            $('.navbar-collapse').collapse('hide');
+        });
+        new WOW().init();
+    /*添加时间组件*/
+    $('.bumen_addtime_edit').datetimepicker({
+    	language:  'zh-CN',  //语言
+    	format: 'yyyy-mm-dd hh:ii:ss',
+    	weekStart: 1,
+    	todayBtn:  1,
+    	autoclose: 1,
+    	minuteStep: 1,
+    	todayHighlight: 1,
+    	startView: 2,
+    	forceParse: 0
+    });
+    bumenEdit("{$bumenbianhao}");
+ })
+ </script> 
+</body>
+</html>
+

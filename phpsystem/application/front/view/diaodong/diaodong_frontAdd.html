@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1 , user-scalable=no">
+<title>员工调动添加</title>
+<link href="__PUBLIC__/plugins/bootstrap.css" rel="stylesheet">
+<link href="__PUBLIC__/plugins/bootstrap-dashen.css" rel="stylesheet">
+<link href="__PUBLIC__/plugins/font-awesome.css" rel="stylesheet">
+<link href="__PUBLIC__/plugins/animate.css" rel="stylesheet">
+<link href="__PUBLIC__/plugins/bootstrap-datetimepicker.min.css" rel="stylesheet" media="screen">
+</head>
+<body style="margin-top:70px;">
+{include file="common/header" /}
+<div class="container">
+	<div class="row">
+		<div class="col-md-12 wow fadeInUp" data-wow-duration="0.5s">
+			<div>
+				<!-- Nav tabs -->
+				<ul class="nav nav-tabs" role="tablist">
+			    	<li role="presentation" ><a href="{:url('Diaodong/frontlist')}">员工调动列表</a></li>
+			    	<li role="presentation" class="active"><a href="#diaodongAdd" aria-controls="diaodongAdd" role="tab" data-toggle="tab">添加员工调动</a></li>
+				</ul>
+				<!-- Tab panes -->
+				<div class="tab-content">
+				    <div role="tabpanel" class="tab-pane" id="diaodongList">
+				    </div>
+				    <div role="tabpanel" class="tab-pane active" id="diaodongAdd"> 
+				      	<form class="form-horizontal" name="diaodongAddForm" id="diaodongAddForm" enctype="multipart/form-data" method="post"  class="mar_t15">
+						  <div class="form-group">
+						  	 <label for="diaodong_xingming_bianhao" class="col-md-2 text-right">姓名:</label>
+						  	 <div class="col-md-8">
+							    <select id="diaodong_xingming_bianhao" name="diaodong.xingming.bianhao" class="form-control">
+							    </select>
+						  	 </div>
+						  </div>
+						  <div class="form-group">
+						  	 <label for="diaodong_bumenmingcheng_bumenbianhao" class="col-md-2 text-right">部门名称:</label>
+						  	 <div class="col-md-8">
+							    <select id="diaodong_bumenmingcheng_bumenbianhao" name="diaodong.bumenmingcheng.bumenbianhao" class="form-control">
+							    </select>
+						  	 </div>
+						  </div>
+						  <div class="form-group">
+						  	 <label for="diaodong_danrenzhiwu" class="col-md-2 text-right">担任职务:</label>
+						  	 <div class="col-md-8">
+							    <input type="text" id="diaodong_danrenzhiwu" name="diaodong_danrenzhiwu" class="form-control" placeholder="请输入担任职务">
+							 </div>
+						  </div>
+						  <div class="form-group">
+						  	 <label for="diaodong_yuanjibengongzi" class="col-md-2 text-right">原基本工资:</label>
+						  	 <div class="col-md-8">
+							    <input type="text" id="diaodong_yuanjibengongzi" name="diaodong_yuanjibengongzi" class="form-control" placeholder="请输入原基本工资">
+							 </div>
+						  </div>
+						  <div class="form-group">
+						  	 <label for="diaodong_diaodongzhiwei" class="col-md-2 text-right">调动职位:</label>
+						  	 <div class="col-md-8">
+							    <input type="text" id="diaodong_diaodongzhiwei" name="diaodong_diaodongzhiwei" class="form-control" placeholder="请输入调动职位">
+							 </div>
+						  </div>
+						  <div class="form-group">
+						  	 <label for="diaodong_diaodongbumen_bumenbianhao" class="col-md-2 text-right">调动部门:</label>
+						  	 <div class="col-md-8">
+							    <select id="diaodong_diaodongbumen_bumenbianhao" name="diaodong.diaodongbumen.bumenbianhao" class="form-control">
+							    </select>
+						  	 </div>
+						  </div>
+						  <div class="form-group">
+						  	 <label for="diaodong_diaodongriqiDiv" class="col-md-2 text-right">调动日期:</label>
+						  	 <div class="col-md-8">
+				                <div id="diaodong_diaodongriqiDiv" class="input-group date diaodong_diaodongriqi col-md-12" data-link-field="diaodong_diaodongriqi" data-link-format="yyyy-mm-dd">
+				                    <input class="form-control" id="diaodong_diaodongriqi" name="diaodong_diaodongriqi" size="16" type="text" value="" placeholder="请选择调动日期" readonly>
+				                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+				                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+				                </div>
+						  	 </div>
+						  </div>
+						  <div class="form-group">
+						  	 <label for="diaodong_xianjibengongzi" class="col-md-2 text-right">现基本工资:</label>
+						  	 <div class="col-md-8">
+							    <input type="text" id="diaodong_xianjibengongzi" name="diaodong_xianjibengongzi" class="form-control" placeholder="请输入现基本工资">
+							 </div>
+						  </div>
+						  <div class="form-group">
+						  	 <label for="diaodong_diaodongyuanyin" class="col-md-2 text-right">调动原因:</label>
+						  	 <div class="col-md-8">
+							    <input type="text" id="diaodong_diaodongyuanyin" name="diaodong_diaodongyuanyin" class="form-control" placeholder="请输入调动原因">
+							 </div>
+						  </div>
+						  <div class="form-group">
+						  	 <label for="diaodong_addtimeDiv" class="col-md-2 text-right">添加时间:</label>
+						  	 <div class="col-md-8">
+				                <div id="diaodong_addtimeDiv" class="input-group date diaodong_addtime col-md-12" data-link-field="diaodong_addtime">
+				                    <input class="form-control" id="diaodong_addtime" name="diaodong_addtime" size="16" type="text" value="" placeholder="请选择添加时间" readonly>
+				                    <span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
+				                    <span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
+				                </div>
+						  	 </div>
+						  </div>
+				          <div class="form-group">
+				             <span class="col-md-2"></span>
+				             <span onclick="ajaxDiaodongAdd();" class="btn btn-primary bottom5 top5">添加</span>
+				          </div>
+						</form> 
+				        <style>#diaodongAddForm .form-group {margin:10px;}  </style>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div> 
+</div>
+
+{include file="common/footer" /}
+<script src="__PUBLIC__/plugins/jquery.min.js"></script>
+<script src="__PUBLIC__/plugins/bootstrap.js"></script>
+<script src="__PUBLIC__/plugins/wow.min.js"></script>
+<script src="__PUBLIC__/plugins/bootstrapvalidator/js/bootstrapValidator.min.js"></script>
+<script type="text/javascript" src="__PUBLIC__/plugins/bootstrap-datetimepicker.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="__PUBLIC__/plugins/locales/bootstrap-datetimepicker.zh-CN.js" charset="UTF-8"></script>
+<script>
+	//提交添加员工调动信息
+	function ajaxDiaodongAdd() { 
+		//提交之前先验证表单
+		$("#diaodongAddForm").data('bootstrapValidator').validate();
+		if(!$("#diaodongAddForm").data('bootstrapValidator').isValid()){
+			return;
+		}
+		jQuery.ajax({
+			type : "post",
+			url : "{:url('Diaodong/frontAdd')}",
+			dataType : "json" , 
+			data: new FormData($("#diaodongAddForm")[0]),
+			success : function(obj) {
+				if(obj.success){ 
+					alert("保存成功！");
+					$("#diaodongAddForm").find("input").val("");
+					$("#diaodongAddForm").find("textarea").val("");
+				} else {
+					alert(obj.message);
+				}
+			},
+			processData: false, 
+			contentType: false, 
+		});
+	} 
+$(function(){
+	/*小屏幕导航点击关闭菜单*/
+    $('.navbar-collapse a').click(function(){
+        $('.navbar-collapse').collapse('hide');
+    });
+    new WOW().init();
+	//验证员工调动添加表单字段
+	$('#diaodongAddForm').bootstrapValidator({
+		feedbackIcons: {
+			valid: 'glyphicon glyphicon-ok',
+			invalid: 'glyphicon glyphicon-remove',
+			validating: 'glyphicon glyphicon-refresh'
+		},
+		fields: {
+			"diaodong_danrenzhiwu": {
+				validators: {
+					notEmpty: {
+						message: "担任职务不能为空",
+					}
+				}
+			},
+			"diaodong_yuanjibengongzi": {
+				validators: {
+					notEmpty: {
+						message: "原基本工资不能为空",
+					},
+					numeric: {
+						message: "原基本工资不正确"
+					}
+				}
+			},
+			"diaodong_diaodongzhiwei": {
+				validators: {
+					notEmpty: {
+						message: "调动职位不能为空",
+					}
+				}
+			},
+			"diaodong_diaodongriqi": {
+				validators: {
+					notEmpty: {
+						message: "调动日期不能为空",
+					}
+				}
+			},
+			"diaodong_xianjibengongzi": {
+				validators: {
+					notEmpty: {
+						message: "现基本工资不能为空",
+					},
+					numeric: {
+						message: "现基本工资不正确"
+					}
+				}
+			},
+			"diaodong_diaodongyuanyin": {
+				validators: {
+					notEmpty: {
+						message: "调动原因不能为空",
+					}
+				}
+			},
+			"diaodong_addtime": {
+				validators: {
+					notEmpty: {
+						message: "添加时间不能为空",
+					}
+				}
+			},
+		}
+	}); 
+	//初始化姓名下拉框值 
+	$.ajax({
+		url: "{:url('Employee/listAll')}",
+		type: "get",
+		dataType: "json",
+		success: function(employees,response,status) { 
+			$("#diaodong_xingming_bianhao").empty();
+			var html="";
+    		$(employees).each(function(i,employee){
+    			html += "<option value='" + employee.bianhao + "'>" + employee.xingming + "</option>";
+    		});
+    		$("#diaodong_xingming_bianhao").html(html);
+    	}
+	});
+	//初始化部门名称下拉框值 
+	$.ajax({
+		url: "{:url('Bumen/listAll')}",
+		type: "get",
+		dataType: "json",
+		success: function(bumens,response,status) { 
+			$("#diaodong_bumenmingcheng_bumenbianhao").empty();
+			var html="";
+    		$(bumens).each(function(i,bumen){
+    			html += "<option value='" + bumen.bumenbianhao + "'>" + bumen.bumenmingcheng + "</option>";
+    		});
+    		$("#diaodong_bumenmingcheng_bumenbianhao").html(html);
+    	}
+	});
+	//初始化调动部门下拉框值 
+	$.ajax({
+		url: "{:url('Bumen/listAll')}",
+		type: "get",
+		dataType: "json",
+		success: function(bumens,response,status) { 
+			$("#diaodong_diaodongbumen_bumenbianhao").empty();
+			var html="";
+    		$(bumens).each(function(i,bumen){
+    			html += "<option value='" + bumen.bumenbianhao + "'>" + bumen.bumenmingcheng + "</option>";
+    		});
+    		$("#diaodong_diaodongbumen_bumenbianhao").html(html);
+    	}
+	});
+	//调动日期组件
+	$('#diaodong_diaodongriqiDiv').datetimepicker({
+		language:  'zh-CN',  //显示语言
+		format: 'yyyy-mm-dd',
+		minView: 2,
+		weekStart: 1,
+		todayBtn:  1,
+		autoclose: 1,
+		minuteStep: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0
+	}).on('hide',function(e) {
+		//下面这行代码解决日期组件改变日期后不验证的问题
+		$('#diaodongAddForm').data('bootstrapValidator').updateStatus('diaodong_diaodongriqi', 'NOT_VALIDATED',null).validateField('diaodong_diaodongriqi');
+	});
+	//添加时间组件
+	$('#diaodong_addtimeDiv').datetimepicker({
+		language:  'zh-CN',  //显示语言
+		format: 'yyyy-mm-dd hh:ii:ss',
+		weekStart: 1,
+		todayBtn:  1,
+		autoclose: 1,
+		minuteStep: 1,
+		todayHighlight: 1,
+		startView: 2,
+		forceParse: 0
+	}).on('hide',function(e) {
+		//下面这行代码解决日期组件改变日期后不验证的问题
+		$('#diaodongAddForm').data('bootstrapValidator').updateStatus('diaodong_addtime', 'NOT_VALIDATED',null).validateField('diaodong_addtime');
+	});
+})
+</script>
+</body>
+</html>

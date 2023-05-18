@@ -1,0 +1,37 @@
+<link rel="stylesheet" type="text/css" href="__PUBLIC__/backcss/bumen.css" />
+<div id="bumen_editDiv">
+	<form id="bumenEditForm" enctype="multipart/form-data"  method="post">
+		<div>
+			<span class="label">部门编号:</span>
+			<span class="inputControl">
+				<input class="textbox" type="text" id="bumen_bumenbianhao_edit" name="bumen_bumenbianhao" value="{$bumenbianhao}" style="width:200px" />
+			</span>
+		</div>
+
+		<div>
+			<span class="label">部门名称:</span>
+			<span class="inputControl">
+				<input class="textbox" type="text" id="bumen_bumenmingcheng_edit" name="bumen_bumenmingcheng" style="width:200px" />
+
+			</span>
+
+		</div>
+		<div>
+			<span class="label">添加时间:</span>
+			<span class="inputControl">
+				<input class="textbox" type="text" id="bumen_addtime_edit" name="bumen_addtime" />
+
+			</span>
+
+		</div>
+		<div class="operation">
+			<a id="bumenModifyButton" class="easyui-linkbutton">更新</a> 
+		</div>
+	</form>
+</div>
+<script>
+	var publicURL = "__PUBLIC__/";
+	var backURL = "__PUBLIC__/index.php/back/";
+</script>
+<script src="__PUBLIC__/backjs/bumen/bumen_modify.js"></script>
+
